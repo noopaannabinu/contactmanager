@@ -16,6 +16,8 @@ app.get('/',(req,res)=>{
 
 import userroute from './routes/route.mjs'
 
+app.use('/',userroute)
+
 app.listen(port,() => {
     console.log(`server started at http://localhost:${port}`)
 })
