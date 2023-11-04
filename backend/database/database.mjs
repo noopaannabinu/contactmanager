@@ -1,9 +1,16 @@
 import 'dotenv/config'
 
-const data = {
+const  {
     MONGODB_SERVERLESS_USERNAME,
     MONGODB_SERVERLESS_PASSWORD,
     MONGO_DB_NAME,
   } = process.env;
 
-console.log(data)
+
+
+  mongoose.connect(mongoose_uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000,
+  });
+  
