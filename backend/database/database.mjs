@@ -1,9 +1,9 @@
 import 'dotenv/config'
 
-const {
+const data = {
     MONGODB_SERVERLESS_USERNAME,
     MONGODB_SERVERLESS_PASSWORD,
     MONGO_DB_NAME,
   } = process.env;
 
-console.log(process.env['SECRET'])
+console.log(data)
