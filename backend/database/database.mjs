@@ -1,4 +1,5 @@
 import 'dotenv/config'
+import mongoose from 'mongoose'
 
 const  {
     MONGODB_SERVERLESS_USERNAME,
@@ -6,11 +7,13 @@ const  {
     MONGO_DB_NAME,
   } = process.env;
 
+  const mongoose_uri = `mongodb://127.0.0.1:27017`;
 
-
-  mongoose.connect(mongoose_uri, {
+  const db = await mongoose.connect(mongoose_uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     serverSelectionTimeoutMS: 5000,
   });
   
+  console.log(db)
+  db.close()
