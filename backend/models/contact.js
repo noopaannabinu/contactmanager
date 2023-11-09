@@ -26,6 +26,10 @@ const contact_schema = mongoose.Schema({
       type : String,
       //required : true,
       default : null
+    },
+    dp : {
+      type:String,
+      default : null
     }
   },{timestamps : true});
   
