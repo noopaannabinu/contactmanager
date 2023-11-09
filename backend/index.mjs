@@ -7,7 +7,7 @@ const port = 8000
 
 const app = express();
 
-const mongoose_uri = `mongodb://127.0.0.1:27017/contact_manger`;
+const mongoose_uri = `mongodb://127.0.0.1:27017/contact_manger`; //change this to connect locally to mongodb
 
 try{
   const db = await mongoose.connect(mongoose_uri, {
