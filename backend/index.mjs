@@ -11,13 +11,12 @@ const mongoose_uri = `mongodb://127.0.0.1:27017/contact_manger`;
 
 try{
   const db = await mongoose.connect(mongoose_uri, {
-    useUnifiedTopology: true,
     serverSelectionTimeoutMS: 5000,
   });
-  console.log([db.connection.host,db.connection.port,db.connection.name])
-}catch(error){
-  
-  console.log(error)
+  console.log(`\ndatabase connected\n{ host:${db.connection.host} port:${db.connection.port} database:${db.connection.name} }\n`)
+}catch(e){
+  console.log("database failure")
+  console.log(e.reason.error.cause)
 }
 
 app.use(express.json());
