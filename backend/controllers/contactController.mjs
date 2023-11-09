@@ -6,12 +6,10 @@ import mongoose from "mongoose";
 
 export const createContact = async (data) => { //this is used to create a new contact
     try{
-        //console.log(data)
         const contact = new Contact(data)
         const res = await contact.save()
         return res
     }catch (e){
-        console.log(e)
         throw e;
     }
 }
