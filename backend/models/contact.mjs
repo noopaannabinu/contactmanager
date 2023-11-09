@@ -1,13 +1,14 @@
 import mongoose from 'mongoose'
 
 const contact_schema = mongoose.Schema({
-    name: {
+  // contact name  
+  name: {
       type: String,
       required: true,
       default : null
     },
   
-    // loc : location
+    // age : age
     age : {
       type : Number
     },
@@ -17,12 +18,13 @@ const contact_schema = mongoose.Schema({
       unique : true,
       required : true
     },
-    //gm : merchant's email
+    //gm : contact mail
     email : {
       type : String,
       //required : true,
       default : null
     },
+    // display picture link
     dp : {
       type:String,
       default : null

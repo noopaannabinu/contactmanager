@@ -3,7 +3,7 @@ import { Contact } from '../models/contact.mjs'
 import express from 'express'
 const router = express.Router()
 
-router.post('/createContact',async (req,res)=>{
+router.post('/createContact',async (req,res)=>{ //this route is used to create a new contact
     try{
         const data = new Contact(req.body)
         const result = await createContact(data)
