@@ -1,12 +1,8 @@
-import 'dotenv/config'
 import mongoose from 'mongoose'
 
-
-
 const contact_schema = mongoose.Schema({
-
     name: {
-      type: JSON,
+      type: String,
       required: true,
       default : null
     },
@@ -18,7 +14,7 @@ const contact_schema = mongoose.Schema({
     // ph: phone number
     phone: {
       type: String,
-      //default: null,
+      unique : true,
       required : true
     },
     //gm : merchant's email
