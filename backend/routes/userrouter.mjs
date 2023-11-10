@@ -4,7 +4,7 @@ import {registerUser,loginUser,getMe} from '../controllers/userController.mjs'
 
 //routers for registration,login and display details
 router.post('/register', registerUser)
-router.post('/login',loginUser)
+router.get('/login',loginUser)
 router.get('/me',getMe)
 
 export default router

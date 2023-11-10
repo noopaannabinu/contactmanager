@@ -30,6 +30,9 @@ app.get('/',(req,res)=>{
 import contactroute from './routes/contactRoute.mjs'
 
 app.use('/',contactroute) // this adds the contact routes
+import userroute from './routes/userrouter.mjs'
+app.use('/users',userroute)
+
 
 app.listen(port,() => {
     console.log(`server started at http://localhost:${port}`)

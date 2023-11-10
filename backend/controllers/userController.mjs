@@ -1,18 +1,20 @@
-import jwt from 'jsonwebtoken'
-import bcrypt from 'bcryptjs'
 import asynchandler from 'express-async-handler'
-import {Contact} from "../models/contacts.mjs";
-
-
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
+import {User} from '../models/usermodel.mjs'
 
 
 const registerUser =asynchandler(async(req,res) =>{
-    /*const {name,email,password}=req.body
-    if(!name || !email || !password){
-        res.status(400)
+    const {username,password}= req.body
+    if(!username  || !password){
+       res.status(400)
         throw new Error('please add all fields')
-    }*/
+        
+    }
     res.send({ message: 'Register User'})
+    console.log("hlooo")
+    
+
 })
 
 const loginUser =asynchandler(async(req,res) =>{
