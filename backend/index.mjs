@@ -20,7 +20,7 @@ try{
 }
 
 app.use(express.json());
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/',(req,res)=>{
     console.log(req.params)
@@ -30,6 +30,9 @@ app.get('/',(req,res)=>{
 import contactroute from './routes/contactRoute.mjs'
 
 app.use('/',contactroute) // this adds the contact routes
+import userroute from './routes/userrouter.mjs'
+app.use('/users',userroute)
+
 
 app.listen(port,() => {
     console.log(`server started at http://localhost:${port}`)
