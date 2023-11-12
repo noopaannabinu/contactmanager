@@ -2,6 +2,8 @@ import asynchandler from 'express-async-handler'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import {User} from '../models/usermodel.mjs'
+import 'dotenv/config'
+
 
 
 const registerUser =asynchandler(async(req,res) =>{
@@ -30,7 +32,7 @@ const registerUser =asynchandler(async(req,res) =>{
             _id:user.id,
             username:user.username,
             
-            //token: generateToken(user.id),
+            token: generateToken(user._id),
             
         })
         
@@ -46,12 +48,14 @@ const registerUser =asynchandler(async(req,res) =>{
 
 const loginUser =asynchandler(async(req,res) =>{
     const{username,password}=req.body
+    console.log(req.body)
     const user=await User.findOne({username})
+    console.log(String(user._id))
     if(user && (await bcrypt.compare(password,user.password))){
         res.json({
             _id:user.id,
             username:user.username,
-           //token: generateToken(user._id),
+           token: generateToken(String(user._id)),
         })
 }else {
     res.status(100)
@@ -65,12 +69,17 @@ const loginUser =asynchandler(async(req,res) =>{
 
 const getMe=asynchandler(async(req,res) =>{
     
-    res.json({ message: 'user display'})
+    const {_id,usernamne}=await User.findById(req.user.id)
+    res.status(200).json({
+        id:_id,
+        username,
+    })
+
 })
 
 const generateToken = (id) => {
-    return jwt.sign({id},process.env.JWT_SECRET,{
-        expiresIn:'30d'
+    return jwt.sign({id},`${process.env.JWT_SECRET}`,{
+        expiresIn:'30d',
     })
 }
 
