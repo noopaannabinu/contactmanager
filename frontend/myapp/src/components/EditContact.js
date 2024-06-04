@@ -1,13 +1,13 @@
 import React from "react"
 import {Link} from "react-router-dom"
 
-class AddContact extends React.Component{
+class EditContact extends React.Component{
     state={
         name:"",
         phone:"",
         email:""
     }
-    add = (e)=>{
+    update = (e)=>{
         e.preventDefault();
         if(this.state.name ==="" || this.state.phone==="" || this.state.email===""){
         alert("all the fields are mandatory")
@@ -27,7 +27,7 @@ class AddContact extends React.Component{
                 <br />
                 
             <h2>Add Contact </h2>
-            <form className="ui form" onSubmit={this.add}>
+            <form className="ui form" onSubmit={this.update}>
                 <div className="field">
                     <label>Name</label>
                     <input type="text" name="name" placeholde="Name"
@@ -62,4 +62,4 @@ class AddContact extends React.Component{
     }
 
 }
-export default AddContact
+export default EditContact
